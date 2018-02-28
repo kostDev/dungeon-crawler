@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(27, 27, 26);
+    text-align: center;
+}
+
+#canvas {
+    background-color: rgba(105, 105, 105, 0.37);
+    margin-top: 20px;
+    border-radius: 2px;
+}
