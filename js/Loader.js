@@ -31,6 +31,7 @@ let loadSounds = function(Data) {
 
 LoadFiles("images",[
     ["wall.png", 'w'],
+    ["fakeWall.png", 'f'],
     ["door1.png", 'i'], // door in
     ["door2.png", 'o'], // door out
     ["ground.png", 'g']
