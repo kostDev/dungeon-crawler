@@ -15,7 +15,7 @@ let DrawMap = function(ctx) {
 	for(let y = 0; y < MAX_BlocksY; y++){
 		posX = 0;
 		for(let x = 0; x < MAX_BlocksX; x++){
-            let imgName = Levels["level1"].gMap[y][x];
+            let imgName = Levels[Player.level].gMap[y][x];
             ctx.drawImage(Tiles.get(imgName), posX, posY, BLOCK32,BLOCK32);
             // ctx.fillStyle= 'rgb(' + Math.floor(235-4.5*x) + ',' +
             //     Math.floor(225-15.5*y) + ',11)';
