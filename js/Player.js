@@ -1,7 +1,8 @@
 let Player = {
     posX : 1,
     posY : 1,
-    simbol : 'h'
+    simbol : 'h',
+    level: "level1",
 }
 
 let DrawPlayer = function(ctx) {
@@ -12,33 +13,44 @@ let DrawPlayer = function(ctx) {
     );
 }
 
-let playerMove = function(e) {
+let playerKeys = function(e) {
     switch(e.key){
 		case "d":
-			if(collisionCheck(Levels["level1"].gMap[Player.posY][Player.posX+1])){
+			if(collisionCheck(Levels[Player.level].gMap[Player.posY][Player.posX+1])){
                 Player.posX += 1;
                 //console.log(Player.posX);
 			}
 			break;
 		case "a":
-			if(collisionCheck(Levels["level1"].gMap[Player.posY][Player.posX-1])){
+			if(collisionCheck(Levels[Player.level].gMap[Player.posY][Player.posX-1])){
                 Player.posX -= 1;
                 //console.log(Player.posX);
 			}
 			break;
 		case "w":
-			if(collisionCheck(Levels["level1"].gMap[Player.posY-1][Player.posX])){
+			if(collisionCheck(Levels[Player.level].gMap[Player.posY-1][Player.posX])){
                 Player.posY -= 1;
                 //console.log(Player.posY);
 			}
 			break;
 		case "s":
-			if(collisionCheck(Levels["level1"].gMap[Player.posY+1][Player.posX])){
+			if(collisionCheck(Levels[Player.level].gMap[Player.posY+1][Player.posX])){
                 Player.posY += 1;
                 //console.log(Player.posY);
 			}
-			break;
+            break;
+        // -- different events
+        case "b":
+            Levels[Player.level].gMap[Player.posY][Player.posX-1] == "f" ? 
+                Levels[Player.level].gMap[Player.posY][Player.posX-1] = "g" : null;
+            Levels[Player.level].gMap[Player.posY][Player.posX+1] == "f" ?
+                Levels[Player.level].gMap[Player.posY][Player.posX+1] = "g" : null;
+            Levels[Player.level].gMap[Player.posY-1][Player.posX] == "f" ? 
+                Levels[Player.level].gMap[Player.posY-1][Player.posX] = "g" : null;
+            Levels[Player.level].gMap[Player.posY+1][Player.posX]  == "f" ?
+                Levels[Player.level].gMap[Player.posY+1][Player.posX] = "g" : null;
+            break;
 	}
 }
 
-window.addEventListener("keyup", playerMove);
+window.addEventListener("keyup", playerKeys);
