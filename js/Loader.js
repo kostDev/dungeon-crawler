@@ -34,7 +34,9 @@ LoadFiles("images",[
     ["fakeWall.png", 'f'],
     ["door1.png", 'i'], // door in
     ["door2.png", 'o'], // door out
-    ["ground.png", 'g']
+    ["ground.png", 'g'],
+    // player
+    ["hero.png", 'h'],
 ]);
 
 LoadFiles("sounds",[
