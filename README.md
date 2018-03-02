@@ -6,4 +6,4 @@
 - [ ] Skills tree
 - [ ] Magic animation
 
-![alt text](https://github.com/kostDev/dungeon-crawler/screens/simple1.PNG "first level")
+![alt text](https://github.com/kostDev/dungeon-crawler/raw/master/screens/simple1.PNG "first level")
