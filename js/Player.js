@@ -1,4 +1,4 @@
-let Player = {
+const Player = {
     posX : 1,
     posY : 1,
     simbol : 'h',
@@ -40,6 +40,7 @@ let playerKeys = function(e) {
 			}
             break;
         // -- different events
+        // b - break the wall
         case "b":
             Levels[Player.level].gMap[Player.posY][Player.posX-1] == "f" ? 
                 Levels[Player.level].gMap[Player.posY][Player.posX-1] = "g" : null;

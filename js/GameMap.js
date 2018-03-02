@@ -25,3 +25,9 @@ let DrawMap = function(ctx) {
 		posY += 32;
 	}
 }
+
+// background for canvas
+let drawPatternForMap = function(ctx) {
+    ctx.fillStyle = ctx.createPattern(Tiles.get("g"), "repeat");
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}

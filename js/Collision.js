@@ -8,6 +8,5 @@ let collisionCheck = function(ch) {
             state = true;
             break;
     } 
-    
     return state;
 }

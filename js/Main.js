@@ -8,6 +8,7 @@ const ctx = canvas.getContext('2d');
 
 function Update() {
     ClearScreen(ctx);
+    drawPatternForMap(ctx);
     DrawMap(ctx);
     DrawPlayer(ctx);
     requestAnimationFrame(Update);

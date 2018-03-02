@@ -31,12 +31,11 @@ let loadSounds = function(Data) {
 
 LoadFiles("images",[
     ["wall.png", 'w'],
-    ["fakeWall.png", 'f'],
+    ["fakeWall.png", 'f'], // this wall player can break
     ["door1.png", 'i'], // door in
     ["door2.png", 'o'], // door out
     ["ground.png", 'g'],
-    // player
-    ["hero.png", 'h'],
+    ["hero.png", 'h'], // player
 ]);
 
 LoadFiles("sounds",[
