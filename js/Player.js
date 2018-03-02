@@ -14,44 +14,47 @@ let DrawPlayer = function(ctx) {
 }
 
 let playerKeys = function(e) {
+    let data = null;
     switch(e.key){
-		case "d":
-			if(collisionCheck(Levels[Player.level].gMap[Player.posY][Player.posX+1])){
+        case "d":
+            data = collisionCheck(Levels[Player.level].gMap[Player.posY][Player.posX+1]);
+			if(data.state){
                 Player.posX += 1;
+                Sounds.get('m').play();
                 //console.log(Player.posX);
 			}
 			break;
-		case "a":
-			if(collisionCheck(Levels[Player.level].gMap[Player.posY][Player.posX-1])){
+        case "a":
+            data = collisionCheck(Levels[Player.level].gMap[Player.posY][Player.posX-1]);
+			if(data.state){
                 Player.posX -= 1;
+                Sounds.get('m').play();
                 //console.log(Player.posX);
 			}
 			break;
-		case "w":
-			if(collisionCheck(Levels[Player.level].gMap[Player.posY-1][Player.posX])){
+        case "w":
+            data = collisionCheck(Levels[Player.level].gMap[Player.posY-1][Player.posX]);
+			if(data.state){
                 Player.posY -= 1;
+                Sounds.get('m').play();
                 //console.log(Player.posY);
 			}
 			break;
-		case "s":
-			if(collisionCheck(Levels[Player.level].gMap[Player.posY+1][Player.posX])){
+        case "s":
+            data = collisionCheck(Levels[Player.level].gMap[Player.posY+1][Player.posX]);
+			if(data.state){
                 Player.posY += 1;
+                Sounds.get('m').play();
                 //console.log(Player.posY);
 			}
             break;
         // -- different events
-        // b - break the wall
-        case "b":
-            Levels[Player.level].gMap[Player.posY][Player.posX-1] == "f" ? 
-                Levels[Player.level].gMap[Player.posY][Player.posX-1] = "g" : null;
-            Levels[Player.level].gMap[Player.posY][Player.posX+1] == "f" ?
-                Levels[Player.level].gMap[Player.posY][Player.posX+1] = "g" : null;
-            Levels[Player.level].gMap[Player.posY-1][Player.posX] == "f" ? 
-                Levels[Player.level].gMap[Player.posY-1][Player.posX] = "g" : null;
-            Levels[Player.level].gMap[Player.posY+1][Player.posX]  == "f" ?
-                Levels[Player.level].gMap[Player.posY+1][Player.posX] = "g" : null;
+        // e - break/take/open the fake wall
+        case "e":
+            checkPosition(Player);
             break;
-	}
+    }
+    data = null;
 }
 
 window.addEventListener("keyup", playerKeys);
