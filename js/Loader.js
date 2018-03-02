@@ -25,6 +25,7 @@ let loadSounds = function(Data) {
     for(let i = 0; i < Data.length; i++){
         let audio = new Audio();
         audio.src = "sounds/" + Data[i][0];
+        audio.volume = '0.5';
         Sounds.set(Data[i][1], audio);
     }
 }
@@ -36,8 +37,11 @@ LoadFiles("images",[
     ["door2.png", 'o'], // door out
     ["ground.png", 'g'],
     ["hero.png", 'h'], // player
+    ["chest.png", 'c'],
 ]);
 
 LoadFiles("sounds",[
-    [""],
+    ["chest.wav", 'c'],
+    ['move.wav', 'm'],
+    ['fakeWall.ogg', 'f'],
 ]);
