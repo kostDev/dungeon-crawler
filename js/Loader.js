@@ -11,6 +11,7 @@ let LoadFiles = function(type, Data) {
             break;
     }
 }
+
 //arrAddress, arrNames
 let loadImages = function(Data) {
     //arr => [ address, name]

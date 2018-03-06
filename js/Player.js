@@ -17,7 +17,7 @@ let playerKeys = function(e) {
     let data = null;
     switch(e.key){
         case "d":
-            data = collisionCheck(Levels[Player.level].gMap[Player.posY][Player.posX+1]);
+            data = checkCollision(Levels[Player.level].gMap[Player.posY][Player.posX+1]);
 			if(data.state){
                 Player.posX += 1;
                 Sounds.get('m').play();
@@ -25,7 +25,7 @@ let playerKeys = function(e) {
 			}
 			break;
         case "a":
-            data = collisionCheck(Levels[Player.level].gMap[Player.posY][Player.posX-1]);
+            data = checkCollision(Levels[Player.level].gMap[Player.posY][Player.posX-1]);
 			if(data.state){
                 Player.posX -= 1;
                 Sounds.get('m').play();
@@ -33,7 +33,7 @@ let playerKeys = function(e) {
 			}
 			break;
         case "w":
-            data = collisionCheck(Levels[Player.level].gMap[Player.posY-1][Player.posX]);
+            data = checkCollision(Levels[Player.level].gMap[Player.posY-1][Player.posX]);
 			if(data.state){
                 Player.posY -= 1;
                 Sounds.get('m').play();
@@ -41,7 +41,7 @@ let playerKeys = function(e) {
 			}
 			break;
         case "s":
-            data = collisionCheck(Levels[Player.level].gMap[Player.posY+1][Player.posX]);
+            data = checkCollision(Levels[Player.level].gMap[Player.posY+1][Player.posX]);
 			if(data.state){
                 Player.posY += 1;
                 Sounds.get('m').play();
@@ -51,7 +51,7 @@ let playerKeys = function(e) {
         // -- different events
         // e - break/take/open the fake wall
         case "e":
-            checkPosition(Player);
+            checkPosition();
             break;
     }
     data = null;
