@@ -3,6 +3,10 @@ const Player = {
     posY : 1,
     simbol : 'h',
     level: "level1",
+    changePosition: function() {
+        this.posX = Levels[this.level].playerPosition.x;
+        this.posY = Levels[this.level].playerPosition.y;
+    }
 }
 
 let DrawPlayer = function(ctx) {

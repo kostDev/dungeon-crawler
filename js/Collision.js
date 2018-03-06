@@ -14,29 +14,29 @@ let checkCollision = function(ch) {
 }
 
 let checkPosition = function() {
-    changeBlocks('f');
-    changeBlocks('c');  
-}
-// char - name of block
-let changeBlocks = function(simbol) {
     let nextLevel = false
-    checkBlocks().some(el =>{
-        if(el == 'i') {
-            loadNextLevel(Player);
-            brk = true;
+    checkBlocks().some(simbol =>{
+        switch (simbol) {
+            case 'i':
+                loadNextLevel(Player);
+                Player.changePosition();
+                nextLevel = true;
+                break;
+            case 'o':
+                loadPrevLevel(Player);
+                Player.changePosition();
+                nextLevel = true;
+                break;
+            case 'f':
+                distroyBlocks(simbol);
+                Sounds.get(simbol).play();
+                break;
+            case 'c':
+                distroyBlocks(simbol);
+                Sounds.get(simbol).play();
+                break;
         }
-        if(el == simbol) Sounds.get(simbol).play();
     });
-    if(!nextLevel){
-        Levels[Player.level].gMap[Player.posY][Player.posX-1] == simbol ? 
-            Levels[Player.level].gMap[Player.posY][Player.posX-1] = "g" : null;
-        Levels[Player.level].gMap[Player.posY][Player.posX+1] == simbol  ?
-            Levels[Player.level].gMap[Player.posY][Player.posX+1] = "g" : null;
-        Levels[Player.level].gMap[Player.posY-1][Player.posX] == simbol ? 
-            Levels[Player.level].gMap[Player.posY-1][Player.posX] = "g" : null;
-        Levels[Player.level].gMap[Player.posY+1][Player.posX]  == simbol  ?
-            Levels[Player.level].gMap[Player.posY+1][Player.posX] = "g" : null;
-    }
 }
 
 let checkBlocks = function() {
@@ -46,4 +46,15 @@ let checkBlocks = function() {
         Levels[Player.level].gMap[Player.posY-1][Player.posX],
         Levels[Player.level].gMap[Player.posY+1][Player.posX]
     ]
+}
+
+let distroyBlocks = function(block) {
+    Levels[Player.level].gMap[Player.posY][Player.posX-1] == block ? 
+        Levels[Player.level].gMap[Player.posY][Player.posX-1] = "g" : null;
+    Levels[Player.level].gMap[Player.posY][Player.posX+1] == block  ?
+        Levels[Player.level].gMap[Player.posY][Player.posX+1] = "g" : null;
+    Levels[Player.level].gMap[Player.posY-1][Player.posX] == block ? 
+        Levels[Player.level].gMap[Player.posY-1][Player.posX] = "g" : null;
+    Levels[Player.level].gMap[Player.posY+1][Player.posX]  == block  ?
+        Levels[Player.level].gMap[Player.posY+1][Player.posX] = "g" : null;
 }
