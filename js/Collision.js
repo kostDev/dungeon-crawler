@@ -31,6 +31,10 @@ let checkPosition = function() {
                 distroyBlocks(simbol);
                 Sounds.get(simbol).play();
                 break;
+            case 'm':
+                distroyBlocks(simbol);
+                Sounds.get('fc').play();
+                break;
             case 'c':
                 distroyBlocks(simbol);
                 Sounds.get(simbol).play();

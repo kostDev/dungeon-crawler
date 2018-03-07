@@ -26,7 +26,9 @@ let loadSounds = function(Data) {
     for(let i = 0; i < Data.length; i++){
         let audio = new Audio();
         audio.src = "sounds/" + Data[i][0];
-        audio.volume = '0.5';
+
+        if(Data[i][1] == "m") audio.volume = 0.1;
+        if(Data[i][1] == "c" || Data[i][1] == "fc") audio.volume = 0.5;
         Sounds.set(Data[i][1], audio);
     }
 }
@@ -39,10 +41,13 @@ LoadFiles("images",[
     ["ground.png", 'g'],
     ["hero.png", 'h'], // player
     ["chest.png", 'c'],
+    ["epicChest.png", 'e'],
+    ["fakeMoneyChest.png", 'm'], // chest which stole player money
 ]);
 
 LoadFiles("sounds",[
     ["chest.wav", 'c'],
     ['move.wav', 'm'],
     ['fakeWall.ogg', 'f'],
+    ['fakeChest.wav', 'fc']
 ]);

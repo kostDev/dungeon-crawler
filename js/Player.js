@@ -19,32 +19,36 @@ let DrawPlayer = function(ctx) {
 
 let playerKeys = function(e) {
     let data = null;
-    switch(e.key){
-        case "d":
+    switch(e.keyCode){
+        // right
+        case 68:
             data = checkCollision(Levels[Player.level].gMap[Player.posY][Player.posX+1]);
 			if(data.state){
                 Player.posX += 1;
                 Sounds.get('m').play();
                 //console.log(Player.posX);
 			}
-			break;
-        case "a":
+            break;
+        // left
+        case 65:
             data = checkCollision(Levels[Player.level].gMap[Player.posY][Player.posX-1]);
 			if(data.state){
                 Player.posX -= 1;
                 Sounds.get('m').play();
                 //console.log(Player.posX);
 			}
-			break;
-        case "w":
+            break;
+        // up
+        case 87:
             data = checkCollision(Levels[Player.level].gMap[Player.posY-1][Player.posX]);
 			if(data.state){
                 Player.posY -= 1;
                 Sounds.get('m').play();
                 //console.log(Player.posY);
 			}
-			break;
-        case "s":
+            break;
+        // down
+        case 83:
             data = checkCollision(Levels[Player.level].gMap[Player.posY+1][Player.posX]);
 			if(data.state){
                 Player.posY += 1;
@@ -54,7 +58,7 @@ let playerKeys = function(e) {
             break;
         // -- different events
         // e - break/take/open the fake wall
-        case "e":
+        case 69:
             checkPosition();
             break;
     }
